@@ -1,8 +1,14 @@
 package com.rahulsharma.journalApp.repository;
 
 import com.rahulsharma.journalApp.entity.JournalEntry;
+import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface JournalEntryRepo extends MongoRepository<JournalEntry, String> {
+import java.util.Optional;
 
+public interface JournalEntryRepo extends MongoRepository<JournalEntry, ObjectId> {
+
+    Optional<JournalEntry> findById(String id);
+
+    void deleteById(String id);
 }
